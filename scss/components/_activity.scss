@@ -1,0 +1,53 @@
+@use "../base/variables" as *; // Import variables
+
+/*Style class activity*/
+.activity {
+  position: relative; 
+  &__img{
+    height: 2.9rem;
+    margin-top: 2rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    width: 16rem;
+    z-index: 0;
+    &>img{
+      width: 3rem;
+      padding-left: 13rem;
+
+    }
+  }
+  &__details{/*style des détails de données*/
+    background-color: $Navy-900;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-top: -1rem; 
+    z-index: 2; 
+    position: relative; // Nécessaire pour z-index
+    width: 16rem;
+  }
+}
+
+/*Couleur de chaque arrière plan en fonction de la catégorie*/
+.activity.work .activity__img {
+  background-color: $Orange-work;
+}
+
+.activity.play .activity__img {
+  background-color: $Blue-play;
+}
+
+.activity.study .activity__img {
+  background-color: $Pink-study;
+}
+
+.activity.exercise .activity__img {
+  background-color: $Green-exercise;
+}
+
+.activity.social .activity__img {
+  background-color: $Purple-700-social;
+}
+
+.activity.self-care .activity__img {
+  background-color: $Yellow-self-care;
+}

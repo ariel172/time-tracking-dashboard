@@ -1,0 +1,131 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  color: hsl(236, 100%, 87%);
+  font-optical-sizing: auto;
+  font-weight: 400;
+  background-color: hsl(226, 43%, 10%);
+  font-size: 1rem;
+}
+
+/*Style class activity*/
+.activity {
+  position: relative;
+}
+.activity__img {
+  height: 2.9rem;
+  margin-top: 2rem;
+  padding: 0.2rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  width: 16rem;
+  z-index: 0;
+}
+.activity__img > img {
+  width: 3rem;
+  padding-left: 13rem;
+}
+.activity__details { /*style des détails de données*/
+  background-color: hsl(235, 46%, 20%);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-top: -1rem;
+  z-index: 2;
+  position: relative;
+  width: 16rem;
+}
+
+/*Couleur de chaque arrière plan en fonction de la catégorie*/
+.activity.work .activity__img {
+  background-color: hsl(15, 100%, 70%);
+}
+
+.activity.play .activity__img {
+  background-color: hsl(195, 74%, 62%);
+}
+
+.activity.study .activity__img {
+  background-color: hsl(348, 100%, 68%);
+}
+
+.activity.exercise .activity__img {
+  background-color: hsl(145, 58%, 55%);
+}
+
+.activity.social .activity__img {
+  background-color: hsl(264, 64%, 52%);
+}
+
+.activity.self-care .activity__img {
+  background-color: hsl(43, 84%, 65%);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/*style class user*/
+.user {
+  margin-top: 2rem;
+  background-color: hsl(235, 45%, 61%);
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 17rem;
+  z-index: 1;
+}
+.user .user__photo {
+  width: 3rem;
+  height: 3rem;
+  border: 0.2rem solid hsl(236, 100%, 87%);
+  border-radius: 50%;
+  float: left;
+  margin-right: 1rem;
+}
+.user__label { /*Premier span de user photo*/
+  font-size: 0.8rem;
+  color: rgba(188.7, 193.12, 255, 0.7);
+}
+
+.timeframes {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: hsl(235, 46%, 20%);
+  padding: 2rem;
+  border-radius: 0 0 1rem 1rem;
+  height: 2rem;
+  width: 17rem;
+  margin-top: -1rem;
+}
+.timeframes .timeframes__button {
+  background-color: hsl(235, 46%, 20%);
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+  color: rgba(188.7, 193.12, 255, 0.4);
+}
+.timeframes .timeframes__button:hover {
+  color: hsl(236, 100%, 87%);
+}
+
+/*style class container*/
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceMappingURL=style.css.map */

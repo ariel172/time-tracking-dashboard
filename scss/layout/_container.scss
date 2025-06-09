@@ -1,0 +1,9 @@
+@use "../base/variables" as *; // Import variables
+
+/*style class container*/
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
