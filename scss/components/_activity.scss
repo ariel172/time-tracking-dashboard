@@ -1,29 +1,41 @@
 @use "../base/variables" as *; // Import variables
 
-/*Style class activity*/
-.activity {
-  position: relative; 
-  &__img{
-    height: 2.9rem;
-    margin-top: 2rem;
-    padding: 0.2rem;
-    border-radius: 0.5rem 0.5rem 0 0;
-    width: 16rem;
-    z-index: 0;
-    &>img{
-      width: 3rem;
-      padding-left: 13rem;
 
-    }
+
+.activity-cards{
+   @media (min-width:1024px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+    grid-column-start: 3;
   }
-  &__details{/*style des détails de données*/
-    background-color: $Navy-900;
-    padding: 1rem;
-    border-radius: 1rem;
-    margin-top: -1rem; 
-    z-index: 2; 
-    position: relative; // Nécessaire pour z-index
-    width: 16rem;
+
+  /*Style class activity*/
+  .activity {
+    position: relative; 
+    &__img{
+      height: 2.9rem;
+      margin-top: 2rem;
+      padding: 0.2rem;
+      border-radius: 0.5rem 0.5rem 0 0;
+      width: 16rem;
+      z-index: 0;
+      &>img{
+        width: 3rem;
+        padding-left: 13rem;
+
+      }
+    }
+    &__details{/*style des détails de données*/
+      background-color: $Navy-900;
+      padding: 1rem;
+      border-radius: 1rem;
+      margin-top: -1rem; 
+      z-index: 2; 
+      position: relative; // Nécessaire pour z-index
+      width: 16rem;
+    }
   }
 }
 

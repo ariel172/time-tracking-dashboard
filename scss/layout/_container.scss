@@ -6,4 +6,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @media (min-width:1024px) {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 2;
+  }
 }

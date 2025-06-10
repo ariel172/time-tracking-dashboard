@@ -2,23 +2,45 @@
 
 
 /*style class user*/
-  .user{
-    margin-top: 2rem;
-    background-color: $Purple-500;
-    padding: 2rem;
-    border-radius: 1rem;
-    width: 17rem;
-    z-index: 1;
-    .user__photo{
-      width: 3rem;
-      height: 3rem;
-      border: 0.2rem solid $Navy-200;
-      border-radius: 50%;
-      float: left;
-      margin-right: 1rem;
+.user{
+  margin-top: 2rem;
+  background-color: $Purple-500;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 17rem;
+  z-index: 1;
+  &__photo{
+    width: 3rem;
+    height: 3rem;
+    border: 0.2rem solid $Navy-200;
+    border-radius: 50%;
+    float: left;
+    margin-right: 1rem;
+  }
+  &__label{
+    font-size: 0.8rem;
+    color: rgba($color: $Navy-200, $alpha: .7);
+  }
+  @media (min-width:1024px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    grid-column-start: 1 ;
+    grid-row-start: 1;
+    width: 13rem;
+    height: 17rem;
+    margin: 0rem 0 20rem 5rem;
+    &__name{
+      font-size: 2rem;
+      margin-top: 0.6rem;
     }
-    &__label{/*Premier span de user photo*/
-      font-size: 0.8rem;
-      color: rgba($color: $Navy-200, $alpha: .7);
+    &__photo{
+      width: 4rem;
+      height: 4rem;
+    }
+    &__label{
+      margin-top: 1rem;
     }
   }
+}
