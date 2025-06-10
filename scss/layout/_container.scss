@@ -1,15 +1,15 @@
 @use "../base/variables" as *; // Import variables
 
 /*style class container*/
-.container{
+.container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
-  @media (min-width:1024px) {
+  @media (min-width: 1024px) {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-    grid-template-rows: 2;
+    grid-template-columns: 20rem repeat(3, 1fr); // 4 colonnes : 1 fixe, 3 flexibles
+    grid-template-rows: auto auto;               // 2 lignes : hauteur automatique
+    gap: 2rem;
   }
 }

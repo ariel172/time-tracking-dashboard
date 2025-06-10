@@ -2,45 +2,50 @@
 
 
 /*style class user*/
-.user{
+.user {
   margin-top: 2rem;
-  background-color: $Purple-500;
+  background-color: $Purple-600;
   padding: 2rem;
   border-radius: 1rem;
-  width: 17rem;
-  z-index: 1;
-  &__photo{
-    width: 3rem;
-    height: 3rem;
+  width: 70%;
+  z-index: 2;
+
+  &__photo {
+    width: 18%;
+    height: 18%;
     border: 0.2rem solid $Navy-200;
     border-radius: 50%;
     float: left;
     margin-right: 1rem;
   }
-  &__label{
+
+  &__label {
     font-size: 0.8rem;
     color: rgba($color: $Navy-200, $alpha: .7);
   }
-  @media (min-width:1024px) {
+
+  &__name {
+      font-size: 4vw;
+  }
+  
+  /*Ecran a dessus de 1024px*/
+  @media (min-width: 1024px) {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    height: auto;
+    margin: 5rem 0 0 2rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: flex-start;
-    grid-column-start: 1 ;
-    grid-row-start: 1;
-    width: 13rem;
-    height: 17rem;
-    margin: 0rem 0 20rem 5rem;
-    &__name{
-      font-size: 2rem;
-      margin-top: 0.6rem;
+
+    &__photo {
+      width: 5rem;
+      height: 5rem;
     }
-    &__photo{
-      width: 4rem;
-      height: 4rem;
-    }
-    &__label{
-      margin-top: 1rem;
+
+    &__label {
+      margin-top: 1.5rem;
+      font-size: 1rem;
     }
   }
 }
