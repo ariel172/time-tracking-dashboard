@@ -1,7 +1,5 @@
 @use "../base/variables" as *; // Import variables
 
-
-
 .activity-cards {
   display: flex;
   flex-direction: column;
@@ -35,7 +33,6 @@
     }
   }
 }
-
 
 /*Couleur de chaque arrière plan en fonction de la catégorie*/
 .activity.work .activity__img {

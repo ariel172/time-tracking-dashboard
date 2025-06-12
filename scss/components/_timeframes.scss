@@ -20,7 +20,7 @@
     cursor: pointer;
     width: 45%;
     color: rgba($color: $Navy-200, $alpha: 0.4);
-    font-size: 1rem;
+    font-size: 3vw;
     &:hover {
       color: $Navy-200;
     }
@@ -37,6 +37,7 @@
     &__button {
       align-self: flex-start;
       width: auto;
+      font-size: 2vw;
     }
   }
 }

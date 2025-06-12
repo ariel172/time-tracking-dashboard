@@ -140,7 +140,7 @@ body {
   cursor: pointer;
   width: 45%;
   color: rgba(188.7, 193.12, 255, 0.4);
-  font-size: 1rem;
+  font-size: 3vw;
 }
 .timeframes__button:hover {
   color: hsl(236, 100%, 87%);
@@ -157,6 +157,7 @@ body {
   .timeframes__button {
     align-self: flex-start;
     width: auto;
+    font-size: 2vw;
   }
 }
 
