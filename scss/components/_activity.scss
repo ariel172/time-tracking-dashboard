@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  width: 70%;
 
   @media (min-width: 1024px) {
     grid-column: 2 / 5; // de la 2e à la 5e colonne (3 colonnes d’activités)
@@ -16,7 +17,7 @@
   .activity {
     &__img {
       height: 2.9rem;
-      margin-top: 2rem;
+      margin: 2rem auto auto auto;
       padding: 0.2rem;
       border-radius: 0.5rem 0.5rem 0 0;
       width: 100%;
@@ -26,10 +27,31 @@
       background-color: $Navy-900;
       padding: 1rem;
       border-radius: 1rem;
-      margin-top: -1rem;
+      margin: -1rem auto auto auto;
       z-index: 2;
       position: relative;
       width: 100%;
+    }
+    &__header{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+       &--img{
+        width: auto;
+        height: 0.3rem;
+      }
+    }
+    &__stats{
+      display: flex;
+      flex-direction: row;
+       &--values{
+      font-size: 1.5rem;
+       margin: 1.5rem 0 0 0;
+      }
+      &--span{
+        font-size: 0.7rem;
+        margin: 2rem 0 0 auto;
+      }
     }
   }
 }
