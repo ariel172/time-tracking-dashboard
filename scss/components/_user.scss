@@ -11,8 +11,8 @@
   z-index: 2;
 
   &__photo {
-    width: 18%;
-    height: 18%;
+    width: 30%;
+    height: 30%;
     border: 0.2rem solid $Navy-200;
     border-radius: 50%;
     float: left;
@@ -32,7 +32,7 @@
   @media (min-width: 1024px) {
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    height: auto;
+    height: 20rem;
     margin: 5rem 0 0 2rem;
     display: flex;
     flex-direction: column;
@@ -47,5 +47,10 @@
       margin-top: 1.5rem;
       font-size: 1rem;
     }
+    
+  &__name {
+      font-size: 3.5vw;
+      font-weight: 100;
+  }
   }
 }
