@@ -188,6 +188,9 @@ body {
 .timeframes__button:hover {
   color: hsl(236, 100%, 87%);
 }
+.timeframes__button.active {
+  color: hsl(236, 100%, 87%);
+}
 @media (min-width: 1024px) {
   .timeframes {
     flex-direction: column;

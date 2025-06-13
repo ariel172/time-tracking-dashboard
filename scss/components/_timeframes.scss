@@ -24,6 +24,9 @@
     &:hover {
       color: $Navy-200;
     }
+    &.active{
+      color: $Navy-200;
+    }
   }
 
   @media (min-width: 1024px) {
