@@ -10,13 +10,13 @@ This is a solution to the [Time tracking dashboard challenge on Frontend Mentor]
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [Additional details](#Additional-details)
   - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -24,89 +24,124 @@ This is a solution to the [Time tracking dashboard challenge on Frontend Mentor]
 
 Users should be able to:
 
-- View the optimal layout for the site depending on their device's screen size
+- View the optimal layout for the site depending on their device's screen size 
 - See hover states for all interactive elements on the page
 - Switch between viewing Daily, Weekly, and Monthly stats
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub](https://github.com/ariel172/time-tracking-dashboard)
+- Live Site URL: [Vercel](https://time-tracking-ariel.vercel.app/)
 
 ## My process
 
 ### Built with
 
 - Semantic HTML5 markup
-- CSS custom properties
+- SCSS with custom properties (variables)
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- JavaScript (DOM manipulation)
+- JSON (for dynamic data)
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+#### Additional details
+
+- BEM-like class naming convention
+- SASS partials and `@use` modules
+- Vanilla JS (no framework)
+- Responsive design (Desktop & Mobile)
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This project helped me reinforce several core front-end development concepts. Here are some of the key takeaways:
 
-To see how you can add code snippets, see below:
+- **DOM manipulation with JavaScript**  
+  I learned how to dynamically create and inject HTML elements using `createElement`, `appendChild`, and how to manage state using event listeners.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
+- **Using JSON as a data source**  
+  I practiced fetching and parsing data from a local `data.json` file and using it to populate the UI dynamically based on user interaction.
+
+- **Responsive layout with CSS Grid and Flexbox**  
+  I built the layout using a mobile-first approach. I used Flexbox for stacking elements vertically and CSS Grid to create a multi-column desktop layout.
+
+- **SCSS architecture with partials and `@use`**  
+  I structured my SCSS into partial files (base, components, layout), reused variables, and practiced modular styling.
+
+- **Managing class states in JavaScript**  
+  I implemented logic to activate/deactivate buttons by dynamically adding and removing classes using `classList`.
+
+- **Handling small UI details**  
+  I positioned SVG icons with `position: absolute`, adjusted responsive sizing, and fixed height issues to prevent layout shifts on different timeframes.
+
+
+
+### What I learned
+
+This project helped me reinforce several core front-end development concepts. Here are some examples:
+
+- **Creating DOM elements dynamically with JavaScript**
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const divActivity = document.createElement("div");
+divActivity.classList.add("activity", titre);
+activityCards.appendChild(divActivity);
+btnTimeframes.forEach((btn) => {
+  btn.classList.remove("active");
+});
+e.target.classList.add("active");
+
+activityCards.innerHTML = "";
+timeFramesData(periode);
+
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+While building this project, I identified several areas where I would like to improve and explore further in future projects:
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **Cleaner JavaScript logic**  
+  My current approach works but could be improved with more reusable functions and better separation of concerns. I’d like to explore patterns like MVC or component-based architecture in vanilla JS.
+
+- **Improved accessibility and semantic structure**  
+  In future projects, I want to pay more attention to ARIA roles, better HTML semantics, and keyboard navigation.
+
+- **Animations and transitions**  
+  I didn’t include animations between time changes (e.g., smooth fading or number transitions). I’d like to learn how to add subtle but effective UI animations using CSS or JavaScript.
+
+- **Responsive design refinement**  
+  Even though I used a mobile-first approach, I want to refine my media queries and grid logic to be more fluid and adaptable to more screen sizes.
+
+- **Build tools and automation**  
+  I used SCSS manually. In future projects, I’d like to set up a more automated environment with tools like Vite or Webpack and use `npm scripts` for compiling SCSS.
+
+
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- [OpenClassrooms – Build dynamic web pages with JavaScript](https://openclassrooms.com/en/courses/7172016-build-dynamic-web-pages-with-javascript)  
+  I used this course to review core DOM manipulation techniques, such as creating elements, handling events, and updating the UI based on user interaction. It really helped me understand how to structure my JavaScript without using a framework.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [OpenClassrooms – Learn to program with JavaScript](https://openclassrooms.com/en/courses/5664271-learn-to-program-with-javascript)  
+  This course was helpful for reinforcing JavaScript fundamentals like variables, functions, conditionals, and loops. I referred back to it a few times when I got stuck with logic or needed to clarify syntax.
+
+- [MDN Web Docs](https://developer.mozilla.org/en-US/)  
+  My go-to reference for anything related to HTML, CSS, and JavaScript. I consulted it for things like `createElement`, `classList`, `fetch`, and responsive design best practices.
+
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
+- Website - [Yamien Ariel](https://github.com/ariel172)
+- Frontend Mentor - [@ariel172](https://www.frontendmentor.io/profile/ariel172)
+- Codepen - [@yamienariel](https://codepen.io/yamienariel)
 
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+## Acknowledgements
 
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Many thanks to the Frontend Mentor Discord community for their helpful advice, encouragement and shared passion for learning. I found inspiration and support by reading other people's solutions.  
+It's great to be part of such a positive and collaborative environment!
