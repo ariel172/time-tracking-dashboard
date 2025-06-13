@@ -27,39 +27,51 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    margin-top: 3.5rem;
+    width: 90%;
   }
+}
+.activity-cards .activity {
+  margin-bottom: -2rem;
 }
 .activity-cards .activity__img {
   overflow: hidden;
-  height: 0.1rem;
-  margin-top: 1.5rem;
+  margin: 2rem 0 -3rem 0;
+  height: 5rem;
   padding: 2rem;
   border-radius: 0.5rem 0.5rem 0 0;
   width: 100%;
   position: relative;
-  top: -0.2rem;
 }
 .activity-cards .activity__img--icon {
   position: absolute;
-  top: 0.1rem;
-  right: 0.5rem;
-  width: 2.5rem;
-  height: auto;
+  top: 0;
+  right: 1rem;
+  width: 3rem;
 }
 .activity-cards .activity__details {
   background-color: hsl(235, 46%, 20%);
-  padding: 1rem;
+  padding: 1.5rem;
   border-radius: 1rem;
-  margin: -1.1rem auto -3rem auto;
+  margin-top: -2rem;
   z-index: 2;
   position: relative;
-  transform: translateY(-20%);
   width: 100%;
+  height: 8rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 1024px) {
+  .activity-cards .activity__details {
+    padding: 2rem;
+    height: 10rem;
+  }
 }
 .activity-cards .activity__header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 .activity-cards .activity__header--img {
   width: auto;
@@ -68,17 +80,35 @@ body {
 .activity-cards .activity__stats {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 .activity-cards .activity__stats--values {
-  font-size: 1.5rem;
-  margin: 1.5rem 0 0 0;
+  font-size: 2rem;
+  font-weight: 300;
 }
 .activity-cards .activity__stats--span {
   font-size: 0.7rem;
-  margin: 2rem 0 0 auto;
+  color: rgba(188.7, 193.12, 255, 0.5);
+  margin-top: 0.9rem;
+}
+@media (min-width: 1024px) {
+  .activity-cards .activity__stats {
+    flex-direction: column;
+  }
+  .activity-cards .activity__stats--values {
+    font-size: 2.5rem;
+  }
+  .activity-cards .activity__stats--span {
+    font-size: 0.8rem;
+  }
+}
+@media (min-width: 1024px) {
+  .activity-cards .activity__img--icon {
+    width: 3.5rem;
+  }
 }
 
-/*Couleur de chaque arrière plan en fonction de la catégorie*/
+/* Couleur de fond pour chaque activité */
 .activity.work .activity__img {
   background-color: hsl(15, 100%, 70%);
 }
@@ -146,8 +176,8 @@ body {
   .user {
     grid-column: 1/2;
     grid-row: 1/2;
-    height: 20rem;
-    margin: 5rem 0 0 2rem;
+    height: 19rem;
+    margin: 7rem 0 0 6rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -161,7 +191,7 @@ body {
     font-size: 1rem;
   }
   .user__name {
-    font-size: 3.5vw;
+    font-size: 3vw;
     font-weight: 100;
   }
 }
@@ -198,12 +228,13 @@ body {
     align-items: flex-start;
     grid-column: 1/2;
     grid-row: 2/3;
-    margin: -3rem 0 0 2rem;
+    margin: -3rem 0 0 6rem;
+    height: 9rem;
   }
   .timeframes__button {
     align-self: flex-start;
     width: auto;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
   }
 }
 

@@ -1,4 +1,4 @@
-@use "../base/variables" as *; // Import variables
+@use "../base/variables" as *;
 
 .activity-cards {
   display: flex;
@@ -7,67 +7,102 @@
   width: 70%;
 
   @media (min-width: 1024px) {
-    grid-column: 2 / 5; // de la 2e à la 5e colonne (3 colonnes d’activités)
-    grid-row: 1 / 3;    // sur les deux lignes (pour s’étaler en hauteur)
+    grid-column: 2 / 5;
+    grid-row: 1 / 3;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    margin-top: 3.5rem;
+    width: 90%;
   }
 
   .activity {
+    margin-bottom: -2rem;
     &__img {
       overflow: hidden;
-      height: 0.1rem;
-      margin-top: 1.5rem;
+      margin: 2rem 0 -3rem 0;
+      height: 5rem;
       padding: 2rem;
       border-radius: 0.5rem 0.5rem 0 0;
       width: 100%;
       position: relative;
-      top: -.2rem;
-      &--icon{
+
+      &--icon {
         position: absolute;
-        top: .1rem;
-        right: 0.5rem;
-        width: 2.5rem;
-        height: auto;
+        top: 0;
+        right: 1rem;
+        width: 3rem;
       }
     }
 
     &__details {
       background-color: $Navy-900;
-      padding: 1rem;
+      padding: 1.5rem;
       border-radius: 1rem;
-      margin: -1.1rem auto -3rem auto;
+      margin-top: -2rem;
       z-index: 2;
       position: relative;
-      transform: translateY(-20%);
       width: 100%;
-    }
-    &__header{
+      height: 8rem; 
+
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-between;
-       &--img{
+
+      @media (min-width: 1024px) {
+        padding: 2rem;
+        height: 10rem;
+      }
+    }
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &--img {
         width: auto;
         height: 0.3rem;
       }
     }
-    &__stats{
+
+    &__stats {
       display: flex;
       flex-direction: row;
-       &--values{
-      font-size: 1.5rem;
-       margin: 1.5rem 0 0 0;
+      justify-content: space-between;
+
+      &--values {
+        font-size: 2rem;
+        font-weight: 300;
       }
-      &--span{
+
+      &--span {
         font-size: 0.7rem;
-        margin: 2rem 0 0 auto;
+        color: rgba($Navy-200, 0.5);
+        margin-top: 0.9rem;
+      }
+      @media (min-width:1024px) {
+        flex-direction: column;
+        &--values {
+          font-size: 2.5rem;
+        }
+         &--span {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    @media (min-width:1024px){
+      &__img {
+        &--icon {
+            width: 3.5rem;
+        }
       }
     }
   }
 }
 
-/*Couleur de chaque arrière plan en fonction de la catégorie*/
+/* Couleur de fond pour chaque activité */
 .activity.work .activity__img {
   background-color: $Orange-work;
 }

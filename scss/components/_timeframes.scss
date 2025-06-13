@@ -35,12 +35,13 @@
     align-items: flex-start;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    margin: -3rem 0 0 2rem;
+    margin: -3rem 0 0 6rem;
+    height: 9rem;
 
     &__button {
       align-self: flex-start;
       width: auto;
-      font-size: 1.5vw;
+      font-size: 1.3vw;
     }
   }
 }
