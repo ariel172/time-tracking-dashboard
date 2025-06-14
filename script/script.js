@@ -1,104 +1,103 @@
 // Récupération des données du fichier data.json
-const reponse = await fetch("data.json");
+const response = await fetch("data.json");
 // Conversion de la réponse JSON (chaîne) en objet JavaScript
-const data = await reponse.json();
-
+const activitiesData = await response.json();
 
 // Récupération des éléments du DOM
-let activityCards = document.querySelector(".activity-cards");
-
-// Récupération des boutons
-let btnTimeframes = document.querySelectorAll(".timeframes__button");
+const activityCardsContainer = document.querySelector(".activity-cards");
+const periodButtons = document.querySelectorAll(".timeframes__button");
 
 // Objet des mots selon la période
-const periodeLabels = {
+const periodLabels = {
   daily: "Yesterday",
   weekly: "Last Week",
   monthly: "Last Month"
 };
 
-// Fonction qui génère les cartes d'activités en fonction de la période
-function timeFramesData(periode) {
-    for (let i = 0; i < data.length; i++) {
-        const tableActivity = data[i];
-        let titre = tableActivity.title.toLowerCase().replace(/\s+/g, '-');
-        let cheminImage = `images/icon-${titre}.svg`;
+// Fonction qui génère les cartes d'activités en fonction de la période choisie
+function renderActivityCards(period) {
+    activitiesData.forEach(activity => {
+        const activityTitle = activity.title.toLowerCase().replace(/\s+/g, '-');
+        const activityIconPath = `images/icon-${activityTitle}.svg`;
 
-        // Création des balises pour chaque carte d’activité
-        const divActivity = document.createElement("div");
-        divActivity.classList.add("activity", titre);
+        const currentHours = activity.timeframes[period.toLowerCase()].current;
+        const hoursUnit = currentHours <= 1 ? "hr" : "hrs";
+        const currentActivityStats = `${currentHours}${hoursUnit}`;
 
-        let divImage = document.createElement("div");
-        divImage.classList.add("activity__img");
+        const previousHours = activity.timeframes[period.toLowerCase()].previous;
+        const previousUnit = previousHours <= 1 ? "hr" : "hrs";
+        const previousActivityStats = `${periodLabels[period.toLowerCase()] || "Previous"} - ${previousHours}${previousUnit}`;
 
-        let imageElement = document.createElement("img");
-        imageElement.classList.add("activity__img--icon");
-        imageElement.src = cheminImage;
+        // Création des éléments HTML pour chaque carte d'activité
+        const activityCard = document.createElement("div");
+        activityCard.classList.add("activity", activityTitle);
 
-        let divDetails = document.createElement("div");
-        divDetails.classList.add("activity__details");
+        const activityImageContainer = document.createElement("div");
+        activityImageContainer.classList.add("activity__img");
 
-        let headerActivity = document.createElement("div");
-        headerActivity.classList.add("activity__header");
+        const activityImage = document.createElement("img");
+        activityImage.classList.add("activity__img--icon");
+        activityImage.src = activityIconPath;
 
-        let imageMenu = document.createElement("img");
-        imageMenu.classList.add("activity__header--img");
-        imageMenu.src = "images/icon-ellipsis.svg";
+        const activityDetailsContainer = document.createElement("div");
+        activityDetailsContainer.classList.add("activity__details");
 
-        let spanTitre = document.createElement("span");
-        spanTitre.textContent = `${titre.charAt(0).toUpperCase()}${titre.slice(1).toLowerCase()}`;
+        const activityHeader = document.createElement("div");
+        activityHeader.classList.add("activity__header");
 
-        let statsActivity = document.createElement("div");
-        statsActivity.classList.add("activity__stats");
+        const activityMenuIcon = document.createElement("img");
+        activityMenuIcon.classList.add("activity__header--img");
+        activityMenuIcon.src = "images/icon-ellipsis.svg";
 
-        let statsValue = document.createElement("p");
-        statsValue.classList.add("activity__stats--values");
+        const activityTitleElement = document.createElement("span");
+        activityTitleElement.textContent = `${activityTitle.charAt(0).toUpperCase()}${activityTitle.slice(1).toLowerCase()}`;
 
-        const currentHours = tableActivity.timeframes[periode.toLowerCase()].current;
-        const unitHours = currentHours <= 1 ? "hr" : "hrs";
-        statsValue.textContent = `${currentHours}${unitHours}`;
+        const activityStatsContainer = document.createElement("div");
+        activityStatsContainer.classList.add("activity__stats");
 
-        let spanLast = document.createElement("span");
-        spanLast.classList.add("activity__stats--span");
+        const currentStatsElement = document.createElement("p");
+        currentStatsElement.classList.add("activity__stats--values");
+        currentStatsElement.textContent = currentActivityStats;
 
-        const label = periodeLabels[periode.toLowerCase()] || "Previous";
-        const previousHours = tableActivity.timeframes[periode.toLowerCase()].previous;
-        const unit = previousHours <= 1 ? "hr" : "hrs";
-        spanLast.textContent = `${label} - ${previousHours}${unit}`;
+        const previousStatsElement = document.createElement("span");
+        previousStatsElement.classList.add("activity__stats--span");
+        previousStatsElement.textContent = previousActivityStats;
 
-        // Ajout des balises enfants dans les parents
-        divImage.appendChild(imageElement);
-        headerActivity.appendChild(spanTitre);
-        headerActivity.appendChild(imageMenu);
-        divDetails.appendChild(headerActivity);
-        statsActivity.appendChild(statsValue);
-        statsActivity.appendChild(spanLast);
-        divDetails.appendChild(statsActivity);
+        // Ajouter les éléments enfants dans leurs parents
+        activityImageContainer.appendChild(activityImage);
+        activityHeader.appendChild(activityTitleElement);
+        activityHeader.appendChild(activityMenuIcon);
+        activityDetailsContainer.appendChild(activityHeader);
+        activityStatsContainer.appendChild(currentStatsElement);
+        activityStatsContainer.appendChild(previousStatsElement);
+        activityDetailsContainer.appendChild(activityStatsContainer);
 
-        divActivity.appendChild(divImage);
-        divActivity.appendChild(divDetails);
-        activityCards.appendChild(divActivity);
-    }
+        activityCard.appendChild(activityImageContainer);
+        activityCard.appendChild(activityDetailsContainer);
+        activityCardsContainer.appendChild(activityCard);
+    });
 }
 
-// Mettre à jour les données en fonction du clic
-for (let button of btnTimeframes) {
-    button.addEventListener("click", (e) => {
-        let valueBtn = e.target.textContent.toLowerCase();
+// Mettre à jour les cartes d'activités en fonction de la période sélectionnée
+for (let periodButton of periodButtons) {
+    periodButton.addEventListener("click", (event) => {
+        let selectedPeriod = event.target.textContent.toLowerCase();
 
-        // Retirer la classe active des autres boutons
-        btnTimeframes.forEach((btn) => {
-            btn.classList.remove("active");
+        // Retirer la classe active de tous les boutons
+        periodButtons.forEach((button) => {
+            button.classList.remove("active");
         });
 
-        // Ajouter la classe active sur le bouton cliqué
-        e.target.classList.add("active");
+        // Ajouter la classe active au bouton cliqué
+        event.target.classList.add("active");
 
-        // Mettre à jour les cartes d'activités avec la nouvelle période
-        activityCards.innerHTML = ""; // Vider les anciennes cartes
-        timeFramesData(valueBtn); // Passer la nouvelle période en argument
+        // Vider le conteneur des anciennes cartes d'activités
+        activityCardsContainer.innerHTML = "";
+
+        // Rendre les cartes d'activités selon la période choisie
+        renderActivityCards(selectedPeriod);
     });
 }
 
 // Initialiser avec la période "weekly" par défaut
-timeFramesData("weekly");
+renderActivityCards("weekly");
