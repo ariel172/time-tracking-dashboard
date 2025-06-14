@@ -101,4 +101,4 @@ for (let button of btnTimeframes) {
 }
 
 // Initialiser avec la période "weekly" par défaut
-timeFramesData("daily");
+timeFramesData("weekly");
